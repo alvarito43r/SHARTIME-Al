@@ -1,19 +1,47 @@
-/* Estilos Generales */
+/* =========================
+   SHARTIME - Estilos Generales
+   ========================= */
 @charset "UTF-8";
+
+:root {
+    --primary: #007bff;
+    --primary-light: #339cff;
+    --background: #e9ecef;
+    --text-main: #212529;
+    --text-secondary: #677583;
+    --text-muted: #6c757d;
+    --white: #fff;
+    --shadow: 0 8px 15px rgba(0,0,0,0.08);
+    --shadow-hover: 0 15px 30px rgba(0,0,0,0.13);
+    --radius: 12px;
+    --transition: 0.25s cubic-bezier(.4,0,.2,1);
+}
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e9ecef;
-    color: #677583;
+    background-color: var(--background);
+    color: var(--text-secondary);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Header */
+/* =========================
+   Header
+   ========================= */
 header {
-    background-color: #ffffff;
-    padding: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-bottom: 2px solid #007bff;
+    background-color: var(--white);
+    padding: 10px 0 0 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+    border-bottom: 2px solid var(--primary);
 }
 
 .header-content {
@@ -25,142 +53,218 @@ header {
     margin: 0 auto;
     position: relative;
     text-align: center;
+    padding-bottom: 10px;
 }
 
 .logo-button {
-    background-color: transparent;
-    border: 2px solid #007bff;
-    color: #007bff;
-    padding: 12px 25px;
-    font-size: 18px;
+    background: var(--white);
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 12px 28px;
+    font-size: 1.1em;
     cursor: pointer;
     font-weight: bold;
     border-radius: 50px;
-    transition: all 0.3s ease;
+    transition: background var(--transition), color var(--transition), box-shadow var(--transition);
     position: absolute;
-    top: 15px;
-    left: 15px;
-    text-decoration: none; /* Quita subrayado del enlace */
+    top: 18px;
+    left: 18px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,123,255,0.06);
+    outline: none;
 }
-
-.logo-button:hover {
-    background-color: #007bff;
-    color: #ffffff;
+.logo-button:focus-visible {
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+.logo-button:hover,
+.logo-button:active {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 4px 16px rgba(0,123,255,0.13);
 }
 
 .title-block {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 3.5em;
     margin: 0;
-    color: #212529;
+    color: var(--text-main);
     letter-spacing: -1px;
+    font-weight: 800;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
 .slogan,
 .about-us {
-    font-size: 1.3em;
+    font-size: 1.25em;
     margin-top: 10px;
-    color: #6c757d;
+    color: var(--text-muted);
     font-style: italic;
 }
 
-/* Main */
+/* =========================
+   Main
+   ========================= */
 main {
-    padding: 50px 20px;
+    padding: 50px 20px 30px 20px;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-    min-height: 60vh; /* Asegura una altura mínima para el contenido */
+    min-height: 60vh;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 32px;
     margin-top: 50px;
 }
 
 .grid-item {
-    background-color: #ffffff;
+    background: var(--white);
     border: none;
-    border-radius: 12px;
+    border-radius: var(--radius);
     height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #212529;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--text-main);
+    box-shadow: var(--shadow);
+    transition: 
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition),
+        color var(--transition);
     cursor: pointer;
     padding: 20px;
+    outline: none;
+    user-select: none;
+    position: relative;
+}
+.grid-item:focus-visible {
+    box-shadow: 0 0 0 4px var(--primary-light), var(--shadow);
+}
+.grid-item:hover,
+.grid-item:active {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: var(--shadow-hover);
+    background: var(--primary);
+    color: var(--white);
 }
 
-.grid-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    background-color: #007bff;
-    color: #ffffff;
-}
-
-/* Responsive: Grid a una columna en móviles */
-@media (max-width: 768px) {
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 900px) {
     .grid-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .header-content {
-        padding: 0 10px;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
     }
     h1 {
-        font-size: 2.2em;
+        font-size: 2.5em;
+    }
+}
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .header-content {
+        padding: 0 8px;
+    }
+    h1 {
+        font-size: 1.6em;
+    }
+    .logo-button {
+        font-size: 1em;
+        padding: 10px 18px;
+        top: 10px;
+        left: 10px;
     }
 }
 
-/* Clase para ocultar elementos */
+/* =========================
+   Utilidades
+   ========================= */
 .hidden {
-    display: none;
+    display: none !important;
 }
 
-/* Actividades */
+/* =========================
+   Actividades
+   ========================= */
 .activities-menu {
     text-align: center;
+    animation: fadeIn 0.5s;
 }
 
 .activities-title {
-    font-size: 2.5em;
-    color: #212529;
-    margin-bottom: 20px;
+    font-size: 2.2em;
+    color: var(--text-main);
+    margin-bottom: 18px;
+    font-weight: 700;
 }
 
 .activities-list {
     list-style: none;
     padding: 0;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #495057;
     max-width: 600px;
     margin: 0 auto;
 }
 
 .activities-list li {
-    margin-bottom: 10px;
-    padding: 15px;
-    background-color: #ffffff;
+    margin-bottom: 12px;
+    padding: 15px 10px;
+    background: var(--white);
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+    transition: background var(--transition), color var(--transition);
+}
+.activities-list li:hover {
+    background: var(--primary-light);
+    color: var(--white);
 }
 
-/* Footer */
+/* =========================
+   Footer
+   ========================= */
 footer {
-    background-color: #f8f9fa;
+    background: #f8f9fa;
     text-align: center;
-    padding: 20px;
-    color: #6c757d;
-    font-size: 0.9em;
+    padding: 22px 10px 18px 10px;
+    color: var(--text-muted);
+    font-size: 0.98em;
     border-top: 1px solid #dee2e6;
+    letter-spacing: 0.5px;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.03);
+}
+
+/* =========================
+   Animaciones
+   ========================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: none;}
+}
+/* ...existing code... */
+.logo-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-svg {
+    display: flex;
+    align-items: center;
+}
+.logo-text {
+    font-weight: bold;
+    font-size: 1.1em;
+    letter-spacing: 1px;
 }

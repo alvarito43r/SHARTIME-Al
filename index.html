@@ -11,7 +11,18 @@
 <body>
     <header>
         <div class="header-content">
-            <a href="#" class="logo-button" aria-label="Inicio SHARTIME">SHARTIME</a>
+            <a href="#" class="logo-button" aria-label="Inicio SHARTIME" tabindex="0">
+                <!-- Logo SVG insertado directamente -->
+                <span class="logo-svg" aria-hidden="true">
+                    <svg width="40" height="40" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="45" r="18" fill="#FF9800" opacity="0.85"/>
+                        <circle cx="60" cy="45" r="12" fill="#FFC107" opacity="0.85"/>
+                        <circle cx="45" cy="45" r="8" fill="#fff" stroke="#FF9800" stroke-width="2"/>
+                        <path d="M38 54 Q45 60 52 54" stroke="#FF9800" stroke-width="2" fill="none"/>
+                    </svg>
+                </span>
+                <span class="logo-text">SHARTIME</span>
+            </a>
             <div class="title-block">
                 <h1>SHARTIME</h1>
                 <p class="slogan">Tu eslogan aquí</p>
@@ -20,32 +31,20 @@
         </div>
     </header>
 
-    <main role="main">
-        <div id="grid-container" class="grid-container">
-            <div class="grid-item" data-page="actividades" tabindex="0">Actividades</div>
-            <div class="grid-item" data-page="placeholder" tabindex="0">Ruleta</div>
-            <div class="grid-item" data-page="placeholder" tabindex="0">Logros</div>
-            <div class="grid-item" data-page="placeholder" tabindex="0">Clasificación</div>
-            <div class="grid-item" data-page="placeholder" tabindex="0">Actividades semanales</div>
-            <div class="grid-item" data-page="placeholder" tabindex="0">Mini guía (200€)</div>
+    <main id="main-content" role="main">
+        <div id="grid-container" class="grid-container" aria-label="Menú principal">
+            <div class="grid-item" data-page="actividades" tabindex="0" role="button" aria-pressed="false">Actividades</div>
+            <div class="grid-item" data-page="ruleta" tabindex="0" role="button" aria-pressed="false">Ruleta</div>
+            <div class="grid-item" data-page="logros" tabindex="0" role="button" aria-pressed="false">Logros</div>
+            <div class="grid-item" data-page="clasificacion" tabindex="0" role="button" aria-pressed="false">Clasificación</div>
+            <div class="grid-item" data-page="actividades semanales" tabindex="0" role="button" aria-pressed="false">Actividades semanales</div>
+            <div class="grid-item" data-page="mini guía (200€)" tabindex="0" role="button" aria-pressed="false">Mini guía (200€)</div>
         </div>
 
-        <div id="activities-container" class="hidden">
-            <div class="activities-menu">
-                <h2 class="activities-title">Actividades</h2>
-                <ul class="activities-list">
-                    <li>Juegos interactivos</li>
-                    <li>Talleres creativos</li>
-                    <li>Retos semanales</li>
-                    <li>Charlas en vivo</li>
-                    <li>Exploración de intereses</li>
-                </ul>
-            </div>
+        <div id="activities-container" class="hidden" aria-live="polite">
+            <!-- El contenido del menú se genera dinámicamente desde script.js -->
         </div>
     </main>
 
     <footer>
-        © 2025 SHARTIME. Todos los derechos reservados.
-    </footer>
-</body>
-</html>
+        © 2025 SHARTIME. Todos los derechos
