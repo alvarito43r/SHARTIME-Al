@@ -1,4 +1,6 @@
 /* Estilos Generales */
+@charset "UTF-8";
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -38,7 +40,7 @@ header {
     position: absolute;
     top: 15px;
     left: 15px;
-    text-decoration: none; /* Añadido para quitar subrayado del enlace */
+    text-decoration: none; /* Quita subrayado del enlace */
 }
 
 .logo-button:hover {
@@ -106,6 +108,20 @@ main {
     color: #ffffff;
 }
 
+/* Responsive: Grid a una columna en móviles */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .header-content {
+        padding: 0 10px;
+    }
+    h1 {
+        font-size: 2.2em;
+    }
+}
+
 /* Clase para ocultar elementos */
 .hidden {
     display: none;
@@ -146,4 +162,5 @@ footer {
     padding: 20px;
     color: #6c757d;
     font-size: 0.9em;
+    border-top: 1px solid #dee2e6;
 }

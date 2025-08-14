@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SHARTIME - Plataforma de actividades, retos y juegos interactivos para jóvenes.">
     <title>SHARTIME - Landing Page Moderna</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
@@ -10,7 +11,7 @@
 <body>
     <header>
         <div class="header-content">
-            <a href="#" id="logo-button" class="logo-button">SHARTIME</a>
+            <a href="#" class="logo-button" aria-label="Inicio SHARTIME">SHARTIME</a>
             <div class="title-block">
                 <h1>SHARTIME</h1>
                 <p class="slogan">Tu eslogan aquí</p>
@@ -19,14 +20,14 @@
         </div>
     </header>
 
-    <main>
+    <main role="main">
         <div id="grid-container" class="grid-container">
-            <div class="grid-item" data-page="actividades">Actividades</div>
-            <div class="grid-item" data-page="placeholder">Ruleta</div>
-            <div class="grid-item" data-page="placeholder">Logros</div>
-            <div class="grid-item" data-page="placeholder">Clasificación</div>
-            <div class="grid-item" data-page="placeholder">Actividades semanales</div>
-            <div class="grid-item" data-page="placeholder">Mini guía (200€)</div>
+            <div class="grid-item" data-page="actividades" tabindex="0">Actividades</div>
+            <div class="grid-item" data-page="placeholder" tabindex="0">Ruleta</div>
+            <div class="grid-item" data-page="placeholder" tabindex="0">Logros</div>
+            <div class="grid-item" data-page="placeholder" tabindex="0">Clasificación</div>
+            <div class="grid-item" data-page="placeholder" tabindex="0">Actividades semanales</div>
+            <div class="grid-item" data-page="placeholder" tabindex="0">Mini guía (200€)</div>
         </div>
 
         <div id="activities-container" class="hidden">
