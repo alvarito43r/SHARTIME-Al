@@ -32,6 +32,7 @@ body {
     min-height: 100vh;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; /* Evita scroll horizontal por confeti */
 }
 
 /* =========================
@@ -42,21 +43,24 @@ header {
     padding: 10px 0 0 0;
     box-shadow: 0 4px 6px rgba(0,0,0,0.07);
     border-bottom: 2px solid var(--primary);
+    position: relative;
 }
 
 .header-content {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    text-align: center;
-    padding-bottom: 10px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 32px 0 32px;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .logo-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     background: var(--white);
     border: 2px solid var(--primary);
     color: var(--primary);
@@ -66,13 +70,12 @@ header {
     font-weight: bold;
     border-radius: 50px;
     transition: background var(--transition), color var(--transition), box-shadow var(--transition);
-    position: absolute;
-    top: 18px;
-    left: 18px;
     text-decoration: none;
     box-shadow: 0 2px 8px rgba(0,123,255,0.06);
     outline: none;
+    margin: 0;
 }
+
 .logo-button:focus-visible {
     box-shadow: 0 0 0 3px var(--primary-light);
 }
@@ -82,13 +85,30 @@ header {
     color: var(--white);
     box-shadow: 0 4px 16px rgba(0,123,255,0.13);
 }
+.logo-svg {
+    display: flex;
+    align-items: center;
+}
+.logo-text {
+    font-weight: bold;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
 
+/* Centrado absoluto del bloque de título */
 .title-block {
-    margin-top: 30px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.5em 0 1em 0;
 }
 
 h1 {
-    font-size: 3.5em;
+    font-size: 4.5em; /* Título más grande */
     margin: 0;
     color: var(--text-main);
     letter-spacing: -1px;
@@ -102,6 +122,7 @@ h1 {
     margin-top: 10px;
     color: var(--text-muted);
     font-style: italic;
+    text-align: center;
 }
 
 /* =========================
@@ -113,6 +134,7 @@ main {
     margin: 0 auto;
     text-align: center;
     min-height: 60vh;
+    margin-bottom: 40px; /* Opcional: espacio para confeti */
 }
 
 .grid-container {
@@ -168,6 +190,10 @@ main {
     h1 {
         font-size: 2.5em;
     }
+    .header-content {
+        padding: 0 12px;
+        gap: 1rem;
+    }
 }
 @media (max-width: 600px) {
     .grid-container {
@@ -176,6 +202,9 @@ main {
     }
     .header-content {
         padding: 0 8px;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
     }
     h1 {
         font-size: 1.6em;
@@ -183,8 +212,12 @@ main {
     .logo-button {
         font-size: 1em;
         padding: 10px 18px;
-        top: 10px;
-        left: 10px;
+        align-self: flex-start;
+    }
+    .title-block {
+        margin-top: 10px;
+        align-items: center;
+        padding: 1em 0 0.5em 0;
     }
 }
 
@@ -253,18 +286,13 @@ footer {
     from { opacity: 0; transform: translateY(20px);}
     to { opacity: 1; transform: none;}
 }
-/* ...existing code... */
-.logo-button {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.logo-svg {
-    display: flex;
-    align-items: center;
-}
-.logo-text {
-    font-weight: bold;
-    font-size: 1.1em;
-    letter-spacing: 1px;
+
+/* =========================
+   Confeti
+   ========================= */
+.confetti-piece {
+    position: fixed;
+    will-change: transform, top;
+    pointer-events: none;
+    z-index: 9999;
 }
